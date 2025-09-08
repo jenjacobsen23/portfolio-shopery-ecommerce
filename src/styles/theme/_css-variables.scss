@@ -1,0 +1,239 @@
+// =============================================================================
+// CSS CUSTOM PROPERTIES
+// =============================================================================
+// Maps SASS variables to CSS custom properties for runtime theming
+
+:root {
+  // Primary Colors
+  --color-primary-50: #{map-get($primary-colors, 50)};
+  --color-primary-100: #{map-get($primary-colors, 100)};
+  --color-primary-200: #{map-get($primary-colors, 200)};
+  --color-primary-300: #{map-get($primary-colors, 300)};
+  --color-primary-400: #{map-get($primary-colors, 400)};
+  --color-primary-500: #{map-get($primary-colors, 500)};
+  --color-primary-600: #{map-get($primary-colors, 600)};
+  --color-primary-700: #{map-get($primary-colors, 700)};
+  --color-primary-800: #{map-get($primary-colors, 800)};
+  --color-primary-900: #{map-get($primary-colors, 900)};
+  --color-primary-contrast: #{map-get(map-get($primary-colors, contrast), 500)};
+
+  // Secondary Colors (Green Gray)
+  --color-secondary-50: #{map-get($secondary-colors, 50)};
+  --color-secondary-100: #{map-get($secondary-colors, 100)};
+  --color-secondary-200: #{map-get($secondary-colors, 200)};
+  --color-secondary-300: #{map-get($secondary-colors, 300)};
+  --color-secondary-400: #{map-get($secondary-colors, 400)};
+  --color-secondary-500: #{map-get($secondary-colors, 500)};
+  --color-secondary-600: #{map-get($secondary-colors, 600)};
+  --color-secondary-700: #{map-get($secondary-colors, 700)};
+  --color-secondary-800: #{map-get($secondary-colors, 800)};
+  --color-secondary-900: #{map-get($secondary-colors, 900)};
+  --color-secondary-contrast: #{map-get(
+      map-get($secondary-colors, contrast),
+      500
+    )};
+
+  // Neutral Colors (Gray)
+  --color-neutral-50: #{map-get($neutral-colors, 50)};
+  --color-neutral-100: #{map-get($neutral-colors, 100)};
+  --color-neutral-200: #{map-get($neutral-colors, 200)};
+  --color-neutral-300: #{map-get($neutral-colors, 300)};
+  --color-neutral-400: #{map-get($neutral-colors, 400)};
+  --color-neutral-500: #{map-get($neutral-colors, 500)};
+  --color-neutral-600: #{map-get($neutral-colors, 600)};
+  --color-neutral-700: #{map-get($neutral-colors, 700)};
+  --color-neutral-800: #{map-get($neutral-colors, 800)};
+  --color-neutral-900: #{map-get($neutral-colors, 900)};
+  --color-neutral-contrast: #{map-get(map-get($neutral-colors, contrast), 500)};
+
+  // Success Colors (Primary Green)
+  --color-success-50: #84d187;
+  --color-success-100: #84d187;
+  --color-success-200: #84d187;
+  --color-success-300: #84d187;
+  --color-success-400: #84d187;
+  --color-success-500: #00b207;
+  --color-success-600: #00b207;
+  --color-success-700: #2c742f;
+  --color-success-800: #2c742f;
+  --color-success-900: #2c742f;
+  --color-success-contrast: #ffffff;
+
+  // Warning Colors
+  --color-warning-50: #{map-get($warning-colors, 50)};
+  --color-warning-100: #{map-get($warning-colors, 100)};
+  --color-warning-200: #{map-get($warning-colors, 200)};
+  --color-warning-300: #{map-get($warning-colors, 300)};
+  --color-warning-400: #{map-get($warning-colors, 400)};
+  --color-warning-500: #{map-get($warning-colors, 500)};
+  --color-warning-600: #{map-get($warning-colors, 600)};
+  --color-warning-700: #{map-get($warning-colors, 700)};
+  --color-warning-800: #{map-get($warning-colors, 800)};
+  --color-warning-900: #{map-get($warning-colors, 900)};
+  --color-warning-contrast: #{map-get(map-get($warning-colors, contrast), 500)};
+
+  // Error Colors
+  --color-error-50: #{map-get($error-colors, 50)};
+  --color-error-100: #{map-get($error-colors, 100)};
+  --color-error-200: #{map-get($error-colors, 200)};
+  --color-error-300: #{map-get($error-colors, 300)};
+  --color-error-400: #{map-get($error-colors, 400)};
+  --color-error-500: #{map-get($error-colors, 500)};
+  --color-error-600: #{map-get($error-colors, 600)};
+  --color-error-700: #{map-get($error-colors, 700)};
+  --color-error-800: #{map-get($error-colors, 800)};
+  --color-error-900: #{map-get($error-colors, 900)};
+  --color-error-contrast: #{map-get(map-get($error-colors, contrast), 500)};
+
+  // Semantic Color Aliases
+  --color-soft-primary: #84d187;
+  --color-primary: #00b207;
+  --color-hard-primary: #2c742f;
+  --color-warning: #ff8a00;
+  --color-danger: #ea4b48;
+  --color-white: #ffffff;
+
+  // Gray Scale
+  --color-gray-9: #1a1a1a;
+  --color-gray-8: #333333;
+  --color-gray-7: #4d4d4d;
+  --color-gray-6: #666666;
+  --color-gray-5: #808080;
+  --color-gray-4: #999999;
+  --color-gray-3: #b3b3b3;
+  --color-gray-2: #cccccc;
+  --color-gray-1: #e6e6e6;
+  --color-gray-05: #f2f2f2;
+
+  // Green Gray Scale
+  --color-green-gray-9: #002603;
+  --color-green-gray-8: #173b1a;
+  --color-green-gray-7: #2b572e;
+  --color-green-gray-6: #406b42;
+  --color-green-gray-5: #618062;
+  --color-green-gray-4: #7a997c;
+  --color-green-gray-3: #96b297;
+  --color-green-gray-2: #b4ccb4;
+  --color-green-gray-1: #dae5da;
+  --color-green-gray-05: #edf2ee;
+
+  // Typography
+  --font-family-primary: #{map-get($font-families, primary)};
+  --font-family-secondary: #{map-get($font-families, secondary)};
+  --font-family-mono: #{map-get($font-families, mono)};
+
+  --font-size-xs: #{map-get($font-sizes, xs)};
+  --font-size-sm: #{map-get($font-sizes, sm)};
+  --font-size-base: #{map-get($font-sizes, base)};
+  --font-size-lg: #{map-get($font-sizes, lg)};
+  --font-size-xl: #{map-get($font-sizes, xl)};
+  --font-size-2xl: #{map-get($font-sizes, "2xl")};
+  --font-size-3xl: #{map-get($font-sizes, "3xl")};
+  --font-size-4xl: #{map-get($font-sizes, "4xl")};
+  --font-size-5xl: #{map-get($font-sizes, "5xl")};
+  --font-size-6xl: #{map-get($font-sizes, "6xl")};
+  --font-size-7xl: #{map-get($font-sizes, "7xl")};
+  --font-size-8xl: #{map-get($font-sizes, "8xl")};
+  --font-size-9xl: #{map-get($font-sizes, "9xl")};
+  --font-size-heading-03: #{map-get($font-sizes, "heading-03")};
+
+  // UI-specific font sizes for exact matching
+  --font-size-heading-01: #{map-get($ui-font-sizes, "heading-01")};
+  --font-size-heading-02: #{map-get($ui-font-sizes, "heading-02")};
+  --font-size-heading-03: #{map-get($ui-font-sizes, "heading-03")};
+  --font-size-heading-04: #{map-get($ui-font-sizes, "heading-04")};
+  --font-size-heading-05: #{map-get($ui-font-sizes, "heading-05")};
+  --font-size-body-xxl: #{map-get($ui-font-sizes, "body-xxl")};
+  --font-size-body-xl: #{map-get($ui-font-sizes, "body-xl")};
+  --font-size-body-large: #{map-get($ui-font-sizes, "body-large")};
+  --font-size-body-medium: #{map-get($ui-font-sizes, "body-medium")};
+  --font-size-body-small: #{map-get($ui-font-sizes, "body-small")};
+  --font-size-body-tiny: #{map-get($ui-font-sizes, "body-tiny")};
+
+  --font-weight-light: #{map-get($font-weights, light)};
+  --font-weight-normal: #{map-get($font-weights, normal)};
+  --font-weight-medium: #{map-get($font-weights, medium)};
+  --font-weight-semibold: #{map-get($font-weights, semibold)};
+  --font-weight-bold: #{map-get($font-weights, bold)};
+
+  --line-height-none: #{map-get($line-heights, none)};
+  --line-height-tight: #{map-get($line-heights, tight)};
+  --line-height-snug: #{map-get($line-heights, snug)};
+  --line-height-normal: #{map-get($line-heights, normal)};
+  --line-height-relaxed: #{map-get($line-heights, relaxed)};
+  --line-height-loose: #{map-get($line-heights, loose)};
+
+  // UI-specific line heights for exact matching
+  --line-height-heading: #{map-get($ui-line-heights, "heading")};
+  --line-height-body-xxl: #{map-get($ui-line-heights, "body-xxl")};
+  --line-height-body-xl: #{map-get($ui-line-heights, "body-xl")};
+  --line-height-body-large: #{map-get($ui-line-heights, "body-large")};
+  --line-height-body-medium: #{map-get($ui-line-heights, "body-medium")};
+  --line-height-body-small: #{map-get($ui-line-heights, "body-small")};
+  --line-height-body-tiny: #{map-get($ui-line-heights, "body-tiny")};
+
+  // Spacing
+  @each $size, $value in $spacing {
+    --spacing-#{$size}: #{$value};
+  }
+
+  // Border Radius
+  @each $size, $value in $border-radius {
+    --border-radius-#{$size}: #{$value};
+  }
+
+  // Shadows
+  @each $size, $value in $shadows {
+    --shadow-#{$size}: #{$value};
+  }
+
+  // Z-Index
+  @each $name, $value in $z-index {
+    --z-index-#{$name}: #{$value};
+  }
+
+  // Transitions
+  @each $name, $value in $transitions {
+    --transition-#{$name}: #{$value};
+  }
+
+  // Semantic Color Mappings
+  --color-background-primary: var(--color-white);
+  --color-background-secondary: var(--color-gray-05);
+  --color-background-tertiary: var(--color-gray-1);
+  --color-background-inverse: var(--color-gray-9);
+
+  --color-text-primary: var(--color-gray-9);
+  --color-text-secondary: var(--color-gray-7);
+  --color-text-muted: var(--color-gray-5);
+  --color-text-inverse: var(--color-white);
+
+  --color-border-primary: var(--color-gray-2);
+  --color-border-secondary: var(--color-gray-1);
+  --color-border-focus: var(--color-primary);
+
+  --color-interactive-primary: var(--color-primary);
+  --color-interactive-primary-hover: var(--color-hard-primary);
+  --color-interactive-primary-alpha: rgba(0, 178, 7, 0.1);
+
+  --color-interactive-secondary: var(--color-secondary-500);
+  --color-interactive-secondary-hover: var(--color-secondary-600);
+  --color-interactive-secondary-alpha: rgba(97, 128, 98, 0.1);
+}
+
+// Dark Theme Variant
+[data-theme="dark"] {
+  --color-background-primary: var(--color-gray-9);
+  --color-background-secondary: var(--color-gray-8);
+  --color-background-tertiary: var(--color-gray-7);
+  --color-background-inverse: var(--color-white);
+
+  --color-text-primary: var(--color-white);
+  --color-text-secondary: var(--color-gray-3);
+  --color-text-muted: var(--color-gray-5);
+  --color-text-inverse: var(--color-gray-9);
+
+  --color-border-primary: var(--color-gray-7);
+  --color-border-secondary: var(--color-gray-6);
+  --color-border-focus: var(--color-soft-primary);
+}

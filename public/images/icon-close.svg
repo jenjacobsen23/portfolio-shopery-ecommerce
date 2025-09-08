@@ -1,0 +1,17 @@
+<svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .close-inactive { stroke: #666666; }
+  .close-active { stroke: #1A1A1A; }
+  .close-hover { stroke: #1A1A1A; }
+  
+  /* Default state - show inactive */
+  .close-inactive { display: block; }
+  .close-active, .close-hover { display: none; }
+</style>
+<path d="M9 1L1 9" class="close-inactive" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M9 9L1 1" class="close-inactive" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M9 1L1 9" class="close-hover" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M9 9L1 1" class="close-hover" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M9 1L1 9" class="close-active" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M9 9L1 1" class="close-active" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

@@ -1,0 +1,132 @@
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  border-radius: 43px;
+  position: relative;
+  overflow: hidden;
+
+  svg-icon {
+    display: flex !important;
+  }
+
+  &:hover:not(.icon--disabled) {
+    background-color: var(--icon-hover-bg-color, inherit) !important;
+    border-color: var(--icon-hover-border-color, inherit) !important;
+
+    // Show hover state in SVG - target icon-specific classes
+    svg-icon ::ng-deep svg .close-inactive,
+    svg-icon ::ng-deep svg .close-active,
+    svg-icon ::ng-deep svg .twitter-inactive,
+    svg-icon ::ng-deep svg .twitter-active,
+    svg-icon ::ng-deep svg .instagram-inactive,
+    svg-icon ::ng-deep svg .instagram-active,
+    svg-icon ::ng-deep svg .facebook-inactive,
+    svg-icon ::ng-deep svg .facebook-active,
+    svg-icon ::ng-deep svg .pinterest-inactive,
+    svg-icon ::ng-deep svg .pinterest-active,
+    svg-icon ::ng-deep svg .favorite-inactive,
+    svg-icon ::ng-deep svg .favorite-active,
+    svg-icon ::ng-deep svg .eye-inactive,
+    svg-icon ::ng-deep svg .eye-active,
+    svg-icon ::ng-deep svg .link-inactive,
+    svg-icon ::ng-deep svg .link-active,
+    svg-icon ::ng-deep svg .bag-inactive,
+    svg-icon ::ng-deep svg .bag-active {
+      display: none !important;
+    }
+    svg-icon ::ng-deep svg .close-hover,
+    svg-icon ::ng-deep svg .twitter-hover,
+    svg-icon ::ng-deep svg .instagram-hover,
+    svg-icon ::ng-deep svg .facebook-hover,
+    svg-icon ::ng-deep svg .pinterest-hover,
+    svg-icon ::ng-deep svg .favorite-hover,
+    svg-icon ::ng-deep svg .eye-hover,
+    svg-icon ::ng-deep svg .link-hover,
+    svg-icon ::ng-deep svg .bag-hover {
+      display: block !important;
+    }
+  }
+
+  // &:focus {
+  //   outline: 2px solid var(--color-primary-500);
+  //   outline-offset: 2px;
+  // }
+
+  // Shape - always circle
+  &--circle {
+    border-radius: 50%;
+  }
+
+  // Size variants
+  &--small {
+    width: 40px;
+    height: 40px;
+  }
+
+  &--medium {
+    width: 48px;
+    height: 48px;
+  }
+
+  &--large {
+    width: 56px;
+    height: 56px;
+  }
+
+  // Border styles
+  &--bordered {
+    border: 1px solid var(--color-border-primary);
+  }
+
+  // States
+  &--selected {
+    background-color: var(
+      --icon-active-bg-color,
+      var(--color-primary-500)
+    ) !important;
+    color: var(--color-text-inverse);
+    border-color: var(--icon-active-border-color, var(--color-primary-500));
+
+    // Show active state in SVG - target icon-specific classes
+    svg-icon ::ng-deep svg .close-inactive,
+    svg-icon ::ng-deep svg .close-hover,
+    svg-icon ::ng-deep svg .favorite-inactive,
+    svg-icon ::ng-deep svg .favorite-hover,
+    svg-icon ::ng-deep svg .instagram-inactive,
+    svg-icon ::ng-deep svg .instagram-hover,
+    svg-icon ::ng-deep svg .twitter-inactive,
+    svg-icon ::ng-deep svg .twitter-hover,
+    svg-icon ::ng-deep svg .facebook-inactive,
+    svg-icon ::ng-deep svg .facebook-hover,
+    svg-icon ::ng-deep svg .pinterest-inactive,
+    svg-icon ::ng-deep svg .pinterest-hover,
+    svg-icon ::ng-deep svg .eye-inactive,
+    svg-icon ::ng-deep svg .eye-hover,
+    svg-icon ::ng-deep svg .link-inactive,
+    svg-icon ::ng-deep svg .link-hover,
+    svg-icon ::ng-deep svg .bag-inactive,
+    svg-icon ::ng-deep svg .bag-hover {
+      display: none !important;
+    }
+    svg-icon ::ng-deep svg .close-active,
+    svg-icon ::ng-deep svg .favorite-active,
+    svg-icon ::ng-deep svg .instagram-active,
+    svg-icon ::ng-deep svg .twitter-active,
+    svg-icon ::ng-deep svg .facebook-active,
+    svg-icon ::ng-deep svg .pinterest-active,
+    svg-icon ::ng-deep svg .eye-active,
+    svg-icon ::ng-deep svg .link-active,
+    svg-icon ::ng-deep svg .bag-active {
+      display: block !important;
+    }
+  }
+
+  &--disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}

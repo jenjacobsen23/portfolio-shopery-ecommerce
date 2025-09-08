@@ -1,0 +1,460 @@
+<div class="theme-demo">
+  <header class="theme-demo__header">
+    <div class="container">
+      <h1 class="theme-demo__title">Theme System Demo</h1>
+      <p class="theme-demo__subtitle">
+        Explore the comprehensive theme system with typography, colors, spacing,
+        and components
+      </p>
+      <div class="theme-demo__controls">
+        <app-theme-toggle />
+      </div>
+    </div>
+  </header>
+
+  <main class="theme-demo__main">
+    <div class="container">
+      <div class="theme-demo__grid">
+        <!-- Typography Section -->
+        <section class="theme-demo__section">
+          <h2 class="theme-demo__section-title">Typography</h2>
+
+          <div class="typography-showcase">
+            <h1 class="h1">Heading 1 - Main Title</h1>
+            <h2 class="h2">Heading 2 - Section Title</h2>
+            <h3 class="h3">Heading 3 - Subsection</h3>
+            <h4 class="h4">Heading 4 - Minor Section</h4>
+            <h5 class="h5">Heading 5 - Small Title</h5>
+            <h6 class="h6">Heading 6 - Caption Title</h6>
+
+            <div class="typography-showcase__body">
+              <p class="body-large">
+                This is body large text. It's perfect for introductory
+                paragraphs and important content that needs to stand out
+                slightly from regular body text.
+              </p>
+              <p class="body-base">
+                This is regular body text. It's the standard size for most
+                content, providing excellent readability while maintaining good
+                visual hierarchy.
+              </p>
+              <p class="body-small">
+                This is body small text. It's ideal for secondary information,
+                captions, and less prominent content that still needs to be
+                readable.
+              </p>
+              <p class="caption">
+                This is caption text. It's the smallest text size, perfect for
+                metadata, footnotes, and other supplementary information.
+              </p>
+            </div>
+
+            <div class="typography-showcase__weights">
+              <p class="font-thin">Thin weight text</p>
+              <p class="font-light">Light weight text</p>
+              <p class="font-normal">Normal weight text</p>
+              <p class="font-medium">Medium weight text</p>
+              <p class="font-semibold">Semibold weight text</p>
+              <p class="font-bold">Bold weight text</p>
+              <p class="font-extrabold">Extrabold weight text</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Colors Section -->
+        <section class="theme-demo__section">
+          <h2 class="theme-demo__section-title">Color Palette</h2>
+
+          <div class="color-showcase">
+            <div class="color-showcase__group">
+              <h3>Primary Colors</h3>
+              <div class="color-showcase__swatches">
+                <div
+                  class="color-swatch"
+                  style="background-color: var(--color-primary-50)"
+                >
+                  <span class="color-swatch__label">50</span>
+                </div>
+                <div
+                  class="color-swatch"
+                  style="background-color: var(--color-primary-100)"
+                >
+                  <span class="color-swatch__label">100</span>
+                </div>
+                <div
+                  class="color-swatch"
+                  style="background-color: var(--color-primary-200)"
+                >
+                  <span class="color-swatch__label">200</span>
+                </div>
+                <div
+                  class="color-swatch"
+                  style="background-color: var(--color-primary-300)"
+                >
+                  <span class="color-swatch__label">300</span>
+                </div>
+                <div
+                  class="color-swatch"
+                  style="background-color: var(--color-primary-400)"
+                >
+                  <span class="color-swatch__label">400</span>
+                </div>
+                <div
+                  class="color-swatch"
+                  style="background-color: var(--color-primary-500)"
+                >
+                  <span class="color-swatch__label">500</span>
+                </div>
+                <div
+                  class="color-swatch"
+                  style="background-color: var(--color-primary-600)"
+                >
+                  <span class="color-swatch__label">600</span>
+                </div>
+                <div
+                  class="color-swatch"
+                  style="background-color: var(--color-primary-700)"
+                >
+                  <span class="color-swatch__label">700</span>
+                </div>
+                <div
+                  class="color-swatch"
+                  style="background-color: var(--color-primary-800)"
+                >
+                  <span class="color-swatch__label">800</span>
+                </div>
+                <div
+                  class="color-swatch"
+                  style="background-color: var(--color-primary-900)"
+                >
+                  <span class="color-swatch__label">900</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="color-showcase__group">
+              <h3>Secondary Colors (Green Gray)</h3>
+              <div class="color-showcase__swatches">
+                <div
+                  class="color-swatch"
+                  style="background-color: var(--color-secondary-50)"
+                >
+                  <span class="color-swatch__label">50</span>
+                </div>
+                <div
+                  class="color-swatch"
+                  style="background-color: var(--color-secondary-100)"
+                >
+                  <span class="color-swatch__label">100</span>
+                </div>
+                <div
+                  class="color-swatch"
+                  style="background-color: var(--color-secondary-200)"
+                >
+                  <span class="color-swatch__label">200</span>
+                </div>
+                <div
+                  class="color-swatch"
+                  style="background-color: var(--color-secondary-300)"
+                >
+                  <span class="color-swatch__label">300</span>
+                </div>
+                <div
+                  class="color-swatch"
+                  style="background-color: var(--color-secondary-400)"
+                >
+                  <span class="color-swatch__label">400</span>
+                </div>
+                <div
+                  class="color-swatch"
+                  style="background-color: var(--color-secondary-500)"
+                >
+                  <span class="color-swatch__label">500</span>
+                </div>
+                <div
+                  class="color-swatch"
+                  style="background-color: var(--color-secondary-600)"
+                >
+                  <span class="color-swatch__label">600</span>
+                </div>
+                <div
+                  class="color-swatch"
+                  style="background-color: var(--color-secondary-700)"
+                >
+                  <span class="color-swatch__label">700</span>
+                </div>
+                <div
+                  class="color-swatch"
+                  style="background-color: var(--color-secondary-800)"
+                >
+                  <span class="color-swatch__label">800</span>
+                </div>
+                <div
+                  class="color-swatch"
+                  style="background-color: var(--color-secondary-900)"
+                >
+                  <span class="color-swatch__label">900</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="color-showcase__group">
+              <h3>Neutral Colors (Gray)</h3>
+              <div class="color-showcase__swatches">
+                <div
+                  class="color-swatch"
+                  style="background-color: var(--color-neutral-50)"
+                >
+                  <span class="color-swatch__label">50</span>
+                </div>
+                <div
+                  class="color-swatch"
+                  style="background-color: var(--color-neutral-100)"
+                >
+                  <span class="color-swatch__label">100</span>
+                </div>
+                <div
+                  class="color-swatch"
+                  style="background-color: var(--color-neutral-200)"
+                >
+                  <span class="color-swatch__label">200</span>
+                </div>
+                <div
+                  class="color-swatch"
+                  style="background-color: var(--color-neutral-300)"
+                >
+                  <span class="color-swatch__label">300</span>
+                </div>
+                <div
+                  class="color-swatch"
+                  style="background-color: var(--color-neutral-400)"
+                >
+                  <span class="color-swatch__label">400</span>
+                </div>
+                <div
+                  class="color-swatch"
+                  style="background-color: var(--color-neutral-500)"
+                >
+                  <span class="color-swatch__label">500</span>
+                </div>
+                <div
+                  class="color-swatch"
+                  style="background-color: var(--color-neutral-600)"
+                >
+                  <span class="color-swatch__label">600</span>
+                </div>
+                <div
+                  class="color-swatch"
+                  style="background-color: var(--color-neutral-700)"
+                >
+                  <span class="color-swatch__label">700</span>
+                </div>
+                <div
+                  class="color-swatch"
+                  style="background-color: var(--color-neutral-800)"
+                >
+                  <span class="color-swatch__label">800</span>
+                </div>
+                <div
+                  class="color-swatch"
+                  style="background-color: var(--color-neutral-900)"
+                >
+                  <span class="color-swatch__label">900</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="color-showcase__group">
+              <h3>Semantic Colors</h3>
+              <div class="color-showcase__semantic">
+                <div class="semantic-color semantic-color--success">
+                  <span class="semantic-color__label">Success</span>
+                </div>
+                <div class="semantic-color semantic-color--warning">
+                  <span class="semantic-color__label">Warning</span>
+                </div>
+                <div class="semantic-color semantic-color--error">
+                  <span class="semantic-color__label">Error</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Components Section -->
+        <section class="theme-demo__section">
+          <h2 class="theme-demo__section-title">Components</h2>
+
+          <div class="components-showcase">
+            <div class="components-showcase__group">
+              <h3>Button Component</h3>
+              <div class="components-showcase__buttons">
+                <!-- Primary Buttons -->
+                <div class="button-showcase__variant">
+                  <h4>Primary Buttons</h4>
+                  <div class="button-showcase__sizes">
+                    <app-button size="small">Small</app-button>
+                    <app-button size="medium">Medium</app-button>
+                    <app-button size="large">Large</app-button>
+                  </div>
+                </div>
+
+                <!-- Outline Buttons -->
+                <div class="button-showcase__variant">
+                  <h4>Outline Buttons</h4>
+                  <div class="button-showcase__sizes">
+                    <app-button variant="outline" size="small"
+                      >Small</app-button
+                    >
+                    <app-button variant="outline" size="medium"
+                      >Medium</app-button
+                    >
+                    <app-button variant="outline" size="large"
+                      >Large</app-button
+                    >
+                  </div>
+                </div>
+
+                <!-- Subtle Buttons -->
+                <div class="button-showcase__variant">
+                  <h4>Subtle Buttons</h4>
+                  <div class="button-showcase__sizes">
+                    <app-button variant="subtle" size="small">Small</app-button>
+                    <app-button variant="subtle" size="medium"
+                      >Medium</app-button
+                    >
+                    <app-button variant="subtle" size="large">Large</app-button>
+                  </div>
+                </div>
+
+                <!-- Interactive Examples -->
+                <div class="button-showcase__variant">
+                  <h4>Interactive Examples</h4>
+                  <div class="button-showcase__sizes">
+                    <app-button type="submit">Submit</app-button>
+                    <app-button [disabled]="true">Disabled</app-button>
+                    <app-button
+                      variant="outline"
+                      ariaLabel="Custom accessible label"
+                      >Custom</app-button
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="components-showcase__group">
+              <h3>Icon Component</h3>
+              <div class="components-showcase__icons">
+                <!-- Social Media Icons -->
+                <div class="icon-showcase__variant">
+                  <h4>Social Media</h4>
+                  <div class="icon-showcase__grid">
+                    <div
+                      class="icon-item"
+                      *ngFor="let icon of socialMediaIcons"
+                    >
+                      <span class="icon-label">{{ icon.type }}</span>
+                      <app-icon
+                        [type]="icon.type"
+                        size="medium"
+                        [hasBorder]="false"
+                      ></app-icon>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Utility Icons -->
+                <div class="icon-showcase__variant">
+                  <h4>Utility Icons</h4>
+                  <div class="icon-showcase__grid">
+                    <div class="icon-item" *ngFor="let icon of utilityIcons">
+                      <span class="icon-label">{{ icon.type }}</span>
+                      <app-icon [type]="icon.type" size="medium"></app-icon>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Size Variants -->
+                <div class="icon-showcase__variant">
+                  <h4>Size Variants</h4>
+                  <div class="icon-showcase__grid">
+                    <div class="icon-item">
+                      <span class="icon-label">Small</span>
+                      <app-icon [type]="'heart'" size="small"></app-icon>
+                    </div>
+                    <div class="icon-item">
+                      <span class="icon-label">Medium</span>
+                      <app-icon [type]="'heart'" size="medium"></app-icon>
+                    </div>
+                    <div class="icon-item">
+                      <span class="icon-label">Large</span>
+                      <app-icon [type]="'heart'" size="large"></app-icon>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="components-showcase__group">
+              <h3>Form Elements</h3>
+              <div class="components-showcase__forms">
+                <input
+                  type="text"
+                  class="input"
+                  placeholder="Enter text here..."
+                />
+                <button class="btn btn-primary">Submit</button>
+              </div>
+            </div>
+
+            <div class="components-showcase__group">
+              <h3>Cards</h3>
+              <div class="card">
+                <h4>Sample Card</h4>
+                <p>
+                  This is a sample card component showcasing the card mixin and
+                  styling.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Spacing Section -->
+        <section class="theme-demo__section">
+          <h2 class="theme-demo__section-title">Spacing Scale</h2>
+
+          <div class="spacing-showcase">
+            <div class="spacing-item" style="margin-bottom: var(--spacing-1)">
+              <div class="spacing-visual spacing-visual--1"></div>
+              <span class="spacing-label">spacing-1 (4px)</span>
+            </div>
+            <div class="spacing-item" style="margin-bottom: var(--spacing-2)">
+              <div class="spacing-visual spacing-visual--2"></div>
+              <span class="spacing-label">spacing-2 (8px)</span>
+            </div>
+            <div class="spacing-item" style="margin-bottom: var(--spacing-4)">
+              <div class="spacing-visual spacing-visual--4"></div>
+              <span class="spacing-label">spacing-4 (16px)</span>
+            </div>
+            <div class="spacing-item" style="margin-bottom: var(--spacing-8)">
+              <div class="spacing-visual spacing-visual--8"></div>
+              <span class="spacing-label">spacing-8 (32px)</span>
+            </div>
+            <div class="spacing-item">
+              <div class="spacing-visual spacing-visual--16"></div>
+              <span class="spacing-label">spacing-16 (64px)</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Customization Section -->
+        <section class="theme-demo__section">
+          <h2 class="theme-demo__section-title">Customize Theme</h2>
+          <app-color-picker />
+        </section>
+      </div>
+    </div>
+  </main>
+</div>

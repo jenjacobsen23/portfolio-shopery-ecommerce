@@ -1,0 +1,16 @@
+// =============================================================================
+// THEME INDEX
+// =============================================================================
+// This file imports all theme-related files in the correct order
+
+// 1. Variables and design tokens
+@import "variables";
+
+// 2. CSS custom properties for runtime theming
+@import "css-variables";
+
+// 3. Mixins and utility functions
+@import "mixins";
+
+// 4. Utility classes
+@import "utilities";

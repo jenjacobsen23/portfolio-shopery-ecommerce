@@ -1,0 +1,14 @@
+<svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+<style>
+  .favorite-inactive { stroke: #666666; }
+  .favorite-active { stroke: #FFF; }
+  .favorite-hover { stroke: #FFF; }
+  
+  /* Default state - show inactive */
+  .favorite-inactive { display: block; }
+  .favorite-active, .favorite-hover { display: none; }
+</style>
+<path d="M9.9996 16.5451C-6.66672 7.33332 4.99993 -2.66668 9.9996 3.6567C14.9999 -2.66668 26.6666 7.33332 9.9996 16.5451Z" class="favorite-inactive" stroke-width="1.5"/>
+<path d="M9.9996 16.5451C-6.66672 7.33332 4.99993 -2.66668 9.9996 3.6567C14.9999 -2.66668 26.6666 7.33332 9.9996 16.5451Z" class="favorite-hover" stroke-width="1.5"/>
+<path d="M9.9996 16.5451C-6.66672 7.33332 4.99993 -2.66668 9.9996 3.6567C14.9999 -2.66668 26.6666 7.33332 9.9996 16.5451Z" class="favorite-active" stroke-width="1.5"/>
+</svg>

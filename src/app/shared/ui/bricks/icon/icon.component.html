@@ -1,0 +1,27 @@
+<div
+  class="icon"
+  [ngClass]="iconClasses"
+  [ngStyle]="iconStyles"
+  (click)="onIconClick()"
+  [attr.aria-label]="(type || 'custom') + ' icon'"
+  role="button"
+  tabindex="0"
+  (keydown.enter)="onIconClick()"
+  (keydown.space)="onIconClick()"
+>
+  <!-- SVG icon with class-based state control -->
+  <svg-icon
+    *ngIf="currentIconSrc"
+    [src]="currentIconSrc"
+    [svgClass]="'icon__svg-file'"
+    [svgAriaLabel]="(type || 'custom') + ' icon'"
+    [class]="
+      'icon-state-' +
+      svgIconClass +
+      ' ' +
+      svgIconClass +
+      ' ' +
+      (type ? type + '-' + svgIconClass : '')
+    "
+  ></svg-icon>
+</div>

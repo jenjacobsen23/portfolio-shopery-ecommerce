@@ -1,0 +1,93 @@
+<div class="color-picker">
+  <h3 class="color-picker__title">Customize Theme Colors</h3>
+
+  <div class="color-picker__section">
+    <label for="primaryColor" class="color-picker__label">
+      Primary Color
+    </label>
+    <div class="color-picker__input-group">
+      <input
+        type="color"
+        id="primaryColor"
+        name="primaryColor"
+        [(ngModel)]="primaryColor"
+        (change)="updatePrimaryColor()"
+        class="color-picker__color-input"
+        aria-label="Choose primary color"
+      />
+      <input
+        type="text"
+        [(ngModel)]="primaryColor"
+        (input)="updatePrimaryColor()"
+        class="color-picker__text-input"
+        placeholder="#000000"
+        pattern="^#[0-9A-Fa-f]{6}$"
+        maxlength="7"
+      />
+    </div>
+    <div class="color-picker__preview">
+      <div
+        class="color-picker__swatch"
+        [style.background-color]="primaryColor"
+      ></div>
+      <span class="color-picker__hex">{{ primaryColor }}</span>
+    </div>
+  </div>
+
+  <div class="color-picker__section">
+    <label for="secondaryColor" class="color-picker__label">
+      Secondary Color
+    </label>
+    <div class="color-picker__input-group">
+      <input
+        type="color"
+        id="secondaryColor"
+        name="secondaryColor"
+        [(ngModel)]="secondaryColor"
+        (change)="updateSecondaryColor()"
+        class="color-picker__color-input"
+        aria-label="Choose secondary color"
+      />
+      <input
+        type="text"
+        [(ngModel)]="secondaryColor"
+        (input)="updateSecondaryColor()"
+        class="color-picker__text-input"
+        placeholder="#000000"
+        pattern="^#[0-9A-Fa-f]{6}$"
+        maxlength="7"
+      />
+    </div>
+    <div class="color-picker__preview">
+      <div
+        class="color-picker__swatch"
+        [style.background-color]="secondaryColor"
+      ></div>
+      <span class="color-picker__hex">{{ secondaryColor }}</span>
+    </div>
+  </div>
+
+  <div class="color-picker__actions">
+    <button
+      type="button"
+      class="color-picker__button color-picker__button--secondary"
+      (click)="resetColors()"
+    >
+      Reset to Default
+    </button>
+    <button
+      type="button"
+      class="color-picker__button color-picker__button--primary"
+      (click)="applyColors()"
+    >
+      Apply Colors
+    </button>
+  </div>
+
+  <div class="color-picker__info">
+    <p class="color-picker__description">
+      Customize your theme by choosing primary and secondary colors. The system
+      will automatically generate lighter and darker shades.
+    </p>
+  </div>
+</div>
