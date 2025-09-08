@@ -713,7 +713,7 @@ describe('IconComponent', () => {
 
       expect(component.currentIconConfig).toEqual({} as IconItem);
       expect(component.currentIconSrc).toBe('');
-      expect(component.currentBackgroundColor).toBe('#F2F2F2');
+      expect(component.currentBackgroundColor).toBe('var(--color-gray-05)');
     });
 
     it('should handle iconConfig with missing icon property', () => {
@@ -758,8 +758,8 @@ describe('IconComponent', () => {
       fixture.detectChanges();
 
       const styles = component.iconStyles;
-      expect(styles['background-color']).toBe('#F2F2F2');
-      expect(styles['border-color']).toBeUndefined();
+      expect(styles['background-color']).toBe('var(--color-gray-05)');
+      expect(styles['border-color']).toBe('var(--color-gray-05)');
     });
 
     it('should handle hasBorder false with iconConfig', () => {

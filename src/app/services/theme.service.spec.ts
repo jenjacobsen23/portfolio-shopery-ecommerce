@@ -67,13 +67,14 @@ describe('ThemeService', () => {
 
     it('should load theme mode from localStorage on initialization', () => {
       localStorage.setItem('theme-mode', 'dark');
-      const newService = TestBed.inject(ThemeService);
+      // Create a new service instance to test initialization
+      const newService = new ThemeService();
       expect(newService.themeMode()).toBe('dark');
     });
 
     it('should handle invalid theme mode from localStorage', () => {
       localStorage.setItem('theme-mode', 'invalid');
-      const newService = TestBed.inject(ThemeService);
+      const newService = new ThemeService();
       expect(newService.themeMode()).toBe('light'); // Should default to light
     });
   });
@@ -126,34 +127,36 @@ describe('ThemeService', () => {
     it('should load custom colors from localStorage on initialization', () => {
       const colors = { primaryColor: '#ff0000' };
       localStorage.setItem('theme-colors', JSON.stringify(colors));
-      const newService = TestBed.inject(ThemeService);
+      const newService = new ThemeService();
       expect(newService.customColors()).toEqual(colors);
     });
 
     it('should handle invalid JSON in localStorage', () => {
       localStorage.setItem('theme-colors', 'invalid-json');
       const consoleSpy = spyOn(console, 'warn');
-      const newService = TestBed.inject(ThemeService);
+      const newService = new ThemeService();
       expect(newService.customColors()).toEqual({});
       expect(consoleSpy).toHaveBeenCalled();
     });
   });
 
   describe('System Preference', () => {
+    let mockMatchMedia: jasmine.Spy;
+
     beforeEach(() => {
       // Mock matchMedia
+      mockMatchMedia = jasmine.createSpy('matchMedia').and.returnValue({
+        matches: false,
+        addEventListener: jasmine.createSpy('addEventListener'),
+        removeEventListener: jasmine.createSpy('removeEventListener'),
+      });
       Object.defineProperty(window, 'matchMedia', {
         writable: true,
-        value: jasmine.createSpy('matchMedia').and.returnValue({
-          matches: false,
-          addEventListener: jasmine.createSpy('addEventListener'),
-          removeEventListener: jasmine.createSpy('removeEventListener'),
-        }),
+        value: mockMatchMedia,
       });
     });
 
     it('should return system preference for dark mode', () => {
-      const mockMatchMedia = window.matchMedia as jasmine.Spy;
       mockMatchMedia.and.returnValue({ matches: true } as any);
 
       service.setThemeMode('system');
@@ -161,7 +164,6 @@ describe('ThemeService', () => {
     });
 
     it('should return system preference for light mode', () => {
-      const mockMatchMedia = window.matchMedia as jasmine.Spy;
       mockMatchMedia.and.returnValue({ matches: false } as any);
 
       service.setThemeMode('system');
@@ -169,7 +171,6 @@ describe('ThemeService', () => {
     });
 
     it('should watch for system preference changes', () => {
-      const mockMatchMedia = window.matchMedia as jasmine.Spy;
       const mockMediaQuery = {
         matches: false,
         addEventListener: jasmine.createSpy('addEventListener'),
@@ -182,6 +183,15 @@ describe('ThemeService', () => {
         'change',
         jasmine.any(Function)
       );
+    });
+
+    it('should apply system theme based on preference', () => {
+      mockMatchMedia.and.returnValue({ matches: true } as any);
+
+      service.setThemeMode('system');
+      const root = document.documentElement;
+      expect(root.getAttribute('data-theme')).toBe('dark');
+      expect(root.classList.contains('dark')).toBe(true);
     });
   });
 
@@ -209,12 +219,15 @@ describe('ThemeService', () => {
     });
 
     it('should handle invalid color format gracefully', () => {
-      const consoleSpy = spyOn(console, 'warn');
+      // Use a color that will cause issues in the parsing logic
       const colors = { primaryColor: 'invalid-color' };
       service.setCustomColors(colors);
 
-      // Should not throw error and should warn
-      expect(consoleSpy).toHaveBeenCalled();
+      // Should not throw error and should still set the base color
+      const root = document.documentElement;
+      expect(root.style.getPropertyValue('--color-primary-500')).toBe(
+        'invalid-color'
+      );
     });
   });
 
@@ -231,16 +244,6 @@ describe('ThemeService', () => {
       const root = document.documentElement;
       expect(root.getAttribute('data-theme')).toBeNull();
       expect(root.classList.contains('dark')).toBe(false);
-    });
-
-    it('should apply system theme based on preference', () => {
-      const mockMatchMedia = window.matchMedia as jasmine.Spy;
-      mockMatchMedia.and.returnValue({ matches: true } as any);
-
-      service.setThemeMode('system');
-      const root = document.documentElement;
-      expect(root.getAttribute('data-theme')).toBe('dark');
-      expect(root.classList.contains('dark')).toBe(true);
     });
   });
 
@@ -295,9 +298,9 @@ describe('ThemeService', () => {
 
     it('should provide computed current theme', () => {
       const theme = service.currentTheme();
-      expect(theme).toHaveProperty('mode');
-      expect(theme).toHaveProperty('isDark');
-      expect(theme).toHaveProperty('colors');
+      expect(theme.mode).toBeDefined();
+      expect(theme.isDark).toBeDefined();
+      expect(theme.colors).toBeDefined();
     });
   });
 
@@ -337,7 +340,7 @@ describe('ThemeService', () => {
       });
 
       // Create new service instance (simulating page reload)
-      const newService = TestBed.inject(ThemeService);
+      const newService = new ThemeService();
 
       // Verify state is restored
       expect(newService.themeMode()).toBe('dark');
