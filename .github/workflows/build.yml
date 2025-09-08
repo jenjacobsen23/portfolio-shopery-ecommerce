@@ -27,7 +27,7 @@ jobs:
         run: npm test -- --code-coverage --watch=false
 
       - name: SonarQube Scan
-        uses: SonarSource/sonarqube-scan-action@b16d2601a6b948e2fb26f3772276581f31daa7cd
+        uses: SonarSource/sonarqube-scan-action@v5
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
