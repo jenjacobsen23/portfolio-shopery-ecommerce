@@ -2,7 +2,7 @@ import {
   ApplicationConfig,
   provideZoneChangeDetection,
   ErrorHandler,
-  APP_INITIALIZER,
+  APP_BOOTSTRAP_LISTENER,
 } from '@angular/core';
 import { provideRouter, Router } from '@angular/router';
 import { provideHttpClient } from '@angular/common/http';
@@ -26,7 +26,7 @@ export const appConfig: ApplicationConfig = {
       deps: [Router],
     },
     {
-      provide: APP_INITIALIZER,
+      provide: APP_BOOTSTRAP_LISTENER,
       useFactory: () => () => {},
       deps: [Sentry.TraceService],
       multi: true,
