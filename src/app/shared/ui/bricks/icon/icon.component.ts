@@ -151,4 +151,11 @@ export class IconComponent {
       this.iconClick.emit();
     }
   }
+
+  onKeyDown(event: KeyboardEvent): void {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      this.onIconClick();
+    }
+  }
 }

@@ -1,13 +1,12 @@
-<div
+<button
   class="icon"
   [ngClass]="iconClasses"
   [ngStyle]="iconStyles"
   (click)="onIconClick()"
+  (keydown)="onKeyDown($event)"
   [attr.aria-label]="(type || 'custom') + ' icon'"
-  role="button"
   tabindex="0"
-  (keydown.enter)="onIconClick()"
-  (keydown.space)="onIconClick()"
+  type="button"
 >
   <!-- SVG icon with class-based state control -->
   <svg-icon
@@ -24,4 +23,4 @@
       (type ? type + '-' + svgIconClass : '')
     "
   ></svg-icon>
-</div>
+</button>

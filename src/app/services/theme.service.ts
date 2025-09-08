@@ -152,9 +152,9 @@ export class ThemeService {
     try {
       // Convert hex to RGB for manipulation
       const hex = baseColor.replace('#', '');
-      const r = parseInt(hex.substr(0, 2), 16);
-      const g = parseInt(hex.substr(2, 2), 16);
-      const b = parseInt(hex.substr(4, 2), 16);
+      const r = parseInt(hex.substring(0, 2), 16);
+      const g = parseInt(hex.substring(2, 4), 16);
+      const b = parseInt(hex.substring(4, 6), 16);
 
       // Generate lighter shades (50-400)
       for (let i = 50; i <= 400; i += 50) {

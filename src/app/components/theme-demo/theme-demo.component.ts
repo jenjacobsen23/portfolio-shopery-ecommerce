@@ -6,7 +6,6 @@ import { ButtonComponent } from '../../shared/ui/bricks/button/button.component'
 import { ThemeService } from '../../services/theme.service';
 import { IconComponent } from '../../shared/ui/bricks/icon/icon.component';
 import {
-  IconItem,
   socialMediaIcons,
   utilityIcons,
 } from '../../shared/ui/bricks/icon/icon.models';

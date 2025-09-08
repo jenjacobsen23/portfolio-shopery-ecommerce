@@ -7,18 +7,12 @@ import {
   SvgIconRegistryService,
   SvgLoader,
 } from 'angular-svg-icon';
-import {
-  IconComponent,
-  IconType,
-  IconConfig,
-  IconShape,
-} from './icon.component';
+import { IconComponent, IconType, IconShape } from './icon.component';
 import {
   IconItem,
   socialMediaIcons,
   utilityIcons,
   getBackgroundColor,
-  getBorderColor,
 } from './icon.models';
 
 describe('IconComponent', () => {
@@ -447,8 +441,8 @@ describe('IconComponent', () => {
       );
     });
 
-    it('should set role as button', () => {
-      expect(iconElement.nativeElement.getAttribute('role')).toBe('button');
+    it('should have implicit button role', () => {
+      expect(iconElement.nativeElement.tagName.toLowerCase()).toBe('button');
     });
 
     it('should set tabindex as 0', () => {
@@ -665,7 +659,7 @@ describe('IconComponent', () => {
 
   describe('Accessibility', () => {
     it('should have proper button role', () => {
-      expect(iconElement.nativeElement.getAttribute('role')).toBe('button');
+      expect(iconElement.nativeElement.tagName.toLowerCase()).toBe('button');
     });
 
     it('should be focusable with tabindex', () => {

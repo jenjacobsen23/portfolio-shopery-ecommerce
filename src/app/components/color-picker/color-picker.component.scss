@@ -100,7 +100,6 @@
   line-height: var(--line-height-tight);
   font-family: var(--font-family-primary);
   color: var(--color-text-secondary);
-  font-family: var(--font-family-mono);
 }
 
 .color-picker__actions {
@@ -172,7 +171,6 @@
   font-family: var(--font-family-primary);
   color: var(--color-text-secondary);
   margin: 0;
-  line-height: 1.5;
 }
 
 @media (max-width: 480px) {
