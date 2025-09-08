@@ -1,4 +1,16 @@
-import { IconType, IconConfig } from './icon.component';
+/**
+ * Defines the available icon types for predefined icons
+ */
+export type IconType =
+  | 'close'
+  | 'bag'
+  | 'heart'
+  | 'eye'
+  | 'facebook'
+  | 'twitter'
+  | 'pinterest'
+  | 'instagram'
+  | 'link';
 
 /**
  * Defines the structure of an icon item with background and border colors for each state
@@ -147,17 +159,4 @@ export function getBorderColor(
     default:
       return 'var(--color-gray-05)';
   }
-}
-
-/**
- * Convert IconItem to IconConfig for use with IconComponent (legacy support)
- */
-export function toIconConfig(item: IconItem): IconConfig {
-  return {
-    type: item.type,
-    icon: item.icon,
-    inactiveColor: getBackgroundColor(item, 'inactive'),
-    activeColor: getBackgroundColor(item, 'active'),
-    hoverColor: getBackgroundColor(item, 'hover'),
-  };
 }

@@ -2,42 +2,13 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 import {
+  IconType,
+  IconItem,
   socialMediaIcons,
   utilityIcons,
-  IconItem,
   getBackgroundColor,
   getBorderColor,
 } from './icon.models';
-
-/**
- * Defines the available icon types for predefined icons
- */
-export type IconType =
-  | 'close'
-  | 'bag'
-  | 'heart'
-  | 'eye'
-  | 'facebook'
-  | 'twitter'
-  | 'pinterest'
-  | 'instagram'
-  | 'link';
-
-/**
- * Defines the structure of an icon configuration
- */
-export interface IconConfig {
-  /** The type of icon this represents */
-  type: IconType;
-  /** Path to the SVG icon asset */
-  icon: string;
-  /** Background color when not selected */
-  inactiveColor?: string;
-  /** Background color when selected */
-  activeColor?: string;
-  /** Background color on hover */
-  hoverColor?: string;
-}
 
 export type IconShape = 'circle';
 

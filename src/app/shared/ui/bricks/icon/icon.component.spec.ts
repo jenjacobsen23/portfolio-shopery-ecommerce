@@ -7,9 +7,10 @@ import {
   SvgIconRegistryService,
   SvgLoader,
 } from 'angular-svg-icon';
-import { IconComponent, IconType, IconShape } from './icon.component';
+import { IconComponent, IconShape } from './icon.component';
 import {
   IconItem,
+  IconType,
   socialMediaIcons,
   utilityIcons,
   getBackgroundColor,
@@ -702,6 +703,213 @@ describe('IconComponent', () => {
       // onIconClick will be called, but it should not emit or toggle when disabled
       expect(component.onIconClick).toHaveBeenCalled();
       expect(component.isSelected).toBe(false); // Should not change when disabled
+    });
+  });
+
+  describe('Edge Cases and Error Handling', () => {
+    it('should handle empty iconConfig gracefully', () => {
+      component.iconConfig = {} as IconItem;
+      fixture.detectChanges();
+
+      expect(component.currentIconConfig).toEqual({} as IconItem);
+      expect(component.currentIconSrc).toBe('');
+      expect(component.currentBackgroundColor).toBe('#F2F2F2');
+    });
+
+    it('should handle iconConfig with missing icon property', () => {
+      component.iconConfig = { type: 'close' } as IconItem;
+      fixture.detectChanges();
+
+      expect(component.currentIconSrc).toBe('');
+    });
+
+    it('should handle invalid type gracefully', () => {
+      component.type = 'invalid' as IconType;
+      fixture.detectChanges();
+
+      expect(component.currentIconConfig).toBeUndefined();
+      expect(component.currentIconSrc).toBe('');
+    });
+
+    it('should handle disabled state with custom colors', () => {
+      component.type = 'facebook';
+      component.disabled = true;
+      component.backgroundColor = '#custom-color';
+      fixture.detectChanges();
+
+      expect(component.currentBackgroundColor).toBe('#custom-color');
+    });
+
+    it('should handle iconConfig with only type property', () => {
+      component.iconConfig = { type: 'close', icon: '/test.svg' } as IconItem;
+      fixture.detectChanges();
+
+      expect(component.currentIconConfig).toEqual({
+        type: 'close',
+        icon: '/test.svg',
+      });
+      expect(component.currentIconSrc).toBe('/test.svg');
+    });
+  });
+
+  describe('Color Generation Edge Cases', () => {
+    it('should handle iconConfig without color properties', () => {
+      component.iconConfig = { type: 'close', icon: '/test.svg' } as IconItem;
+      fixture.detectChanges();
+
+      const styles = component.iconStyles;
+      expect(styles['background-color']).toBe('#F2F2F2');
+      expect(styles['border-color']).toBeUndefined();
+    });
+
+    it('should handle hasBorder false with iconConfig', () => {
+      component.type = 'facebook';
+      component.hasBorder = false;
+      fixture.detectChanges();
+
+      const styles = component.iconStyles;
+      expect(styles['border-color']).toBeUndefined();
+      expect(styles['--icon-hover-border-color']).toBeUndefined();
+      expect(styles['--icon-active-border-color']).toBeUndefined();
+    });
+
+    it('should handle selected state with custom backgroundColor', () => {
+      component.type = 'facebook';
+      component.isSelected = true;
+      component.backgroundColor = '#custom-bg';
+      fixture.detectChanges();
+
+      // Should use icon config colors, not custom backgroundColor when iconConfig exists
+      const expectedConfig = socialMediaIcons.find(
+        (icon) => icon.type === 'facebook'
+      );
+      const expectedColor = getBackgroundColor(expectedConfig!, 'active');
+      expect(component.currentBackgroundColor).toBe(expectedColor);
+    });
+  });
+
+  describe('Keyboard Event Edge Cases', () => {
+    it('should prevent default on Enter key', () => {
+      const enterEvent = new KeyboardEvent('keydown', { key: 'Enter' });
+      const preventDefaultSpy = spyOn(enterEvent, 'preventDefault');
+
+      component.onKeyDown(enterEvent);
+
+      expect(preventDefaultSpy).toHaveBeenCalled();
+    });
+
+    it('should prevent default on Space key', () => {
+      const spaceEvent = new KeyboardEvent('keydown', { key: ' ' });
+      const preventDefaultSpy = spyOn(spaceEvent, 'preventDefault');
+
+      component.onKeyDown(spaceEvent);
+
+      expect(preventDefaultSpy).toHaveBeenCalled();
+    });
+
+    it('should not prevent default on other keys', () => {
+      const escapeEvent = new KeyboardEvent('keydown', { key: 'Escape' });
+      const preventDefaultSpy = spyOn(escapeEvent, 'preventDefault');
+
+      component.onKeyDown(escapeEvent);
+
+      expect(preventDefaultSpy).not.toHaveBeenCalled();
+    });
+
+    it('should handle keyboard events when component is disabled', () => {
+      component.disabled = true;
+      const enterEvent = new KeyboardEvent('keydown', { key: 'Enter' });
+      const preventDefaultSpy = spyOn(enterEvent, 'preventDefault');
+
+      component.onKeyDown(enterEvent);
+
+      expect(preventDefaultSpy).toHaveBeenCalled();
+    });
+  });
+
+  describe('Icon Classes Edge Cases', () => {
+    it('should handle type with special characters', () => {
+      component.type = 'facebook';
+      fixture.detectChanges();
+
+      const classes = component.iconClasses;
+      expect(classes).toContain('icon--facebook');
+    });
+
+    it('should handle all disabled states', () => {
+      component.disabled = true;
+      component.isSelected = true;
+      component.hasBorder = true;
+      fixture.detectChanges();
+
+      const classes = component.iconClasses;
+      expect(classes).toContain('icon--disabled');
+      expect(classes).toContain('icon--selected');
+      expect(classes).toContain('icon--bordered');
+    });
+
+    it('should handle size changes dynamically', () => {
+      component.size = 'small';
+      fixture.detectChanges();
+      expect(component.iconClasses).toContain('icon--small');
+
+      component.size = 'large';
+      fixture.detectChanges();
+      expect(component.iconClasses).toContain('icon--large');
+    });
+  });
+
+  describe('SVG Icon Class Edge Cases', () => {
+    it('should return inactive when disabled regardless of selection', () => {
+      component.disabled = true;
+      component.isSelected = true;
+
+      expect(component.svgIconClass).toBe('inactive');
+    });
+
+    it('should return active when selected and not disabled', () => {
+      component.disabled = false;
+      component.isSelected = true;
+
+      expect(component.svgIconClass).toBe('active');
+    });
+
+    it('should return inactive when not selected and not disabled', () => {
+      component.disabled = false;
+      component.isSelected = false;
+
+      expect(component.svgIconClass).toBe('inactive');
+    });
+  });
+
+  describe('Event Emission', () => {
+    it('should emit iconClick event only when not disabled', () => {
+      spyOn(component.iconClick, 'emit');
+      component.disabled = false;
+
+      component.onIconClick();
+
+      expect(component.iconClick.emit).toHaveBeenCalled();
+    });
+
+    it('should not emit iconClick event when disabled', () => {
+      spyOn(component.iconClick, 'emit');
+      component.disabled = true;
+
+      component.onIconClick();
+
+      expect(component.iconClick.emit).not.toHaveBeenCalled();
+    });
+
+    it('should toggle isSelected state on click when not disabled', () => {
+      component.disabled = false;
+      component.isSelected = false;
+
+      component.onIconClick();
+      expect(component.isSelected).toBe(true);
+
+      component.onIconClick();
+      expect(component.isSelected).toBe(false);
     });
   });
 });
